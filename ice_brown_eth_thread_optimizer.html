@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperClaude ETH Thread Optimizer - Ice Brown Edition | Scribe Mode Active</title>
+    <title>🔴 Matrix Thread Generator - Ice Brown | Down the Rabbit Hole</title>
     <style>
         * {
             margin: 0;
@@ -11,16 +11,177 @@
             box-sizing: border-box;
         }
 
+        /* Matrix Loading Screen Styles */
+        .matrix-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease;
+        }
+
+        .matrix-loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #00ff00;
+            animation: matrixFall linear infinite;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        @keyframes matrixFall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        .matrix-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+        }
+
+        .matrix-logo {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px #00ff00;
+            animation: matrixPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes matrixPulse {
+            0%, 100% { 
+                opacity: 1;
+                text-shadow: 0 0 20px #00ff00;
+            }
+            50% { 
+                opacity: 0.7;
+                text-shadow: 0 0 30px #00ff00, 0 0 40px #00ff00;
+            }
+        }
+
+        .matrix-text {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #00ff00;
+            animation: matrixTypewriter 3s steps(40, end);
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #00ff00;
+            width: 0;
+            animation: matrixTypewriter 3s steps(40, end) forwards, matrixBlink 0.75s step-end infinite 3s;
+        }
+
+        @keyframes matrixTypewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes matrixBlink {
+            from, to { border-color: transparent; }
+            50% { border-color: #00ff00; }
+        }
+
+        .matrix-pills {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .matrix-pill {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #00ff00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 2em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: matrixGlow 2s ease-in-out infinite alternate;
+        }
+
+        .matrix-pill.red {
+            border-color: #ff0040;
+            color: #ff0040;
+            text-shadow: 0 0 10px #ff0040;
+        }
+
+        .matrix-pill.blue {
+            border-color: #0080ff;
+            color: #0080ff;
+            text-shadow: 0 0 10px #0080ff;
+        }
+
+        .matrix-pill:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 30px currentColor;
+        }
+
+        @keyframes matrixGlow {
+            0% { box-shadow: 0 0 5px currentColor; }
+            100% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+        }
+
+        .matrix-footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9em;
+            opacity: 0.7;
+            animation: matrixFade 1s ease-in 4s both;
+        }
+
+        @keyframes matrixFade {
+            from { opacity: 0; }
+            to { opacity: 0.7; }
+        }
+
+        /* App Container - Initially Hidden */
+        .app-container {
+            opacity: 0;
+            transition: opacity 1s ease 0.5s;
+        }
+
+        .app-container.show {
+            opacity: 1;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #667eea 50%, #764ba2 75%, #8e44ad 100%);
-            background-size: 400% 400%;
-            animation: worldTraveller 15s ease infinite;
+            font-family: 'Courier New', monospace;
+            background: #000000;
             min-height: 100vh;
-            color: #333;
+            color: #00ff00;
             position: relative;
             overflow-x: hidden;
         }
+
 
         @keyframes worldTraveller {
             0% { background-position: 0% 50%; }
@@ -30,20 +191,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
 
         .container {
             max-width: 1200px;
@@ -53,142 +200,59 @@
             z-index: 1;
         }
 
-        .crypto-globe {
-            position: absolute;
-            top: 10%;
-            right: 5%;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-            background-size: 200% 200%;
-            animation: cryptoGlobe 8s ease infinite;
-            opacity: 0.3;
-            z-index: 0;
-        }
 
-        @keyframes cryptoGlobe {
-            0% { transform: rotate(0deg) scale(1); background-position: 0% 50%; }
-            25% { transform: rotate(90deg) scale(1.1); background-position: 100% 50%; }
-            50% { transform: rotate(180deg) scale(1); background-position: 100% 100%; }
-            75% { transform: rotate(270deg) scale(0.9); background-position: 0% 100%; }
-            100% { transform: rotate(360deg) scale(1); background-position: 0% 50%; }
-        }
 
-        .floating-icons {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .floating-icon {
-            position: absolute;
-            font-size: 24px;
-            opacity: 0.1;
-            animation: float 20s linear infinite;
-        }
-
-        @keyframes float {
-            0% { 
-                transform: translateY(100vh) rotate(0deg); 
-                opacity: 0;
-            }
-            10% { opacity: 0.1; }
-            90% { opacity: 0.1; }
-            100% { 
-                transform: translateY(-100px) rotate(360deg); 
-                opacity: 0;
-            }
-        }
-
-        .floating-icon:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .floating-icon:nth-child(2) { left: 20%; animation-delay: 2s; }
-        .floating-icon:nth-child(3) { left: 30%; animation-delay: 4s; }
-        .floating-icon:nth-child(4) { left: 40%; animation-delay: 6s; }
-        .floating-icon:nth-child(5) { left: 50%; animation-delay: 8s; }
-        .floating-icon:nth-child(6) { left: 60%; animation-delay: 10s; }
-        .floating-icon:nth-child(7) { left: 70%; animation-delay: 12s; }
-        .floating-icon:nth-child(8) { left: 80%; animation-delay: 14s; }
-        .floating-icon:nth-child(9) { left: 90%; animation-delay: 16s; }
 
         .header {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 20px;
+            background: #000000;
+            border-radius: 5px;
             padding: 40px;
             margin-bottom: 30px;
             text-align: center;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid #00ff00;
             position: relative;
             overflow: hidden;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: shimmer 3s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-        }
 
         .world-traveller-badge {
             display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb);
-            background-size: 200% 200%;
-            animation: badgeShine 4s ease infinite;
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 8px 16px;
-            border-radius: 20px;
-            color: white;
+            border-radius: 3px;
+            color: #00ff00;
             font-size: 0.9em;
             font-weight: bold;
             margin: 10px 5px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes badgeShine {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            font-family: 'Courier New', monospace;
         }
 
         .header h1 {
-            color: #2c3e50;
+            color: #00ff00;
             font-size: 2.5em;
             margin-bottom: 10px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px #00ff00;
+            font-family: 'Courier New', monospace;
         }
 
         .header .subtitle {
-            color: #666;
+            color: #00ff00;
             font-size: 1.2em;
             font-weight: 300;
+            opacity: 0.8;
+            font-family: 'Courier New', monospace;
         }
 
         .viral-alert {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
+            background: #000000;
+            border: 2px solid #00ff00;
+            color: #00ff00;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 5px;
             margin-bottom: 30px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(238, 90, 36, 0.3);
+            font-family: 'Courier New', monospace;
         }
 
         .viral-alert h2 {
@@ -197,33 +261,33 @@
         }
 
         .thread-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
+            background: #000000;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .tweet {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
+            background: #000000;
+            border: 1px solid #00ff00;
             margin: 20px 0;
             padding: 20px;
-            border-radius: 0 10px 10px 0;
+            border-radius: 3px;
             position: relative;
         }
 
         .tweet.hook {
-            border-left-color: #ff6b6b;
-            background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+            border: 2px solid #00ff00;
+            background: #000000;
         }
 
         .tweet-number {
             position: absolute;
             top: -10px;
             left: -10px;
-            background: #667eea;
-            color: white;
+            background: #00ff00;
+            color: #000000;
             border-radius: 50%;
             width: 30px;
             height: 30px;
@@ -232,24 +296,23 @@
             justify-content: center;
             font-weight: bold;
             font-size: 0.8em;
-        }
-
-        .tweet.hook .tweet-number {
-            background: #ff6b6b;
+            font-family: 'Courier New', monospace;
         }
 
         .tweet-header {
             font-weight: bold;
-            color: #2c3e50;
+            color: #00ff00;
             margin-bottom: 10px;
             font-size: 1.1em;
+            font-family: 'Courier New', monospace;
         }
 
         .tweet-content {
             font-size: 1em;
             line-height: 1.6;
             margin-bottom: 15px;
-            color: #444;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
         }
 
         .tweet-meta {
@@ -257,56 +320,64 @@
             justify-content: space-between;
             align-items: center;
             font-size: 0.9em;
-            color: #666;
-            border-top: 1px solid #e1e8ed;
+            color: #00ff00;
+            border-top: 1px solid #00ff00;
             padding-top: 15px;
         }
 
         .character-count {
-            background: #e1f5fe;
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 4px 8px;
-            border-radius: 4px;
+            border-radius: 3px;
             font-weight: bold;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
         }
 
         .link {
-            background: #667eea;
-            color: white;
+            background: #000000;
+            border: 1px solid #00ff00;
+            color: #00ff00;
             padding: 8px 12px;
-            border-radius: 6px;
+            border-radius: 3px;
             text-decoration: none;
             font-size: 0.8em;
             transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
         }
 
         .link:hover {
-            background: #5a6fd8;
+            background: #00ff00;
+            color: #000000;
             transform: translateY(-2px);
         }
 
         .section-header {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
+            background: #00ff00;
+            color: #000000;
             padding: 15px 20px;
             margin: 30px 0 0 0;
-            border-radius: 10px 10px 0 0;
+            border-radius: 3px 3px 0 0;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-family: 'Courier New', monospace;
         }
 
         .optimization-panel {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
+            background: #000000;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .optimization-panel h3 {
-            color: #2c3e50;
+            color: #00ff00;
             margin-bottom: 20px;
             font-size: 1.4em;
+            font-family: 'Courier New', monospace;
         }
 
         .optimization-grid {
@@ -316,15 +387,16 @@
         }
 
         .optimization-card {
-            background: #f8f9fa;
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
+            border-radius: 3px;
         }
 
         .optimization-card h4 {
-            color: #2c3e50;
+            color: #00ff00;
             margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
         }
 
         .optimization-card ul {
@@ -334,22 +406,25 @@
 
         .optimization-card li {
             padding: 5px 0;
-            color: #555;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
         }
 
         .optimization-card li:before {
-            content: "✓ ";
-            color: #27ae60;
+            content: "> ";
+            color: #00ff00;
             font-weight: bold;
         }
 
         .viral-metrics {
-            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
-            color: white;
+            background: #000000;
+            border: 2px solid #00ff00;
+            color: #00ff00;
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 5px;
             margin: 30px 0;
             text-align: center;
+            font-family: 'Courier New', monospace;
         }
 
         .viral-metrics h3 {
@@ -365,9 +440,10 @@
         }
 
         .metric {
-            background: rgba(255, 255, 255, 0.2);
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 3px;
         }
 
         .metric-value {
@@ -382,40 +458,23 @@
         }
 
         .copy-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8e44ad 100%);
-            color: white;
-            border: none;
+            background: #000000;
+            border: 2px solid #00ff00;
+            color: #00ff00;
             padding: 15px 30px;
-            border-radius: 50px;
+            border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
             font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             margin: 12px 8px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .copy-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .copy-button:hover::before {
-            left: 100%;
+            font-family: 'Courier New', monospace;
         }
 
         .copy-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+            background: #00ff00;
+            color: #000000;
+            transform: translateY(-2px);
         }
 
         .copy-button:active {
@@ -423,11 +482,11 @@
         }
 
         .framework-selector {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
+            background: #000000;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .framework-tabs {
@@ -439,49 +498,28 @@
         }
 
         .framework-tab {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e8f4fd 100%);
-            border: 2px solid #e1e8ed;
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 15px 25px;
-            border-radius: 12px;
+            border-radius: 3px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             font-weight: 600;
             text-align: center;
             min-width: 160px;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .framework-tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .framework-tab:hover::before {
-            left: 100%;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
         }
 
         .framework-tab.active {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border-color: #667eea;
+            background: #00ff00;
+            color: #000000;
+            border-color: #00ff00;
         }
 
         .framework-tab:hover {
-            background: #e1f5fe;
-            border-color: #667eea;
-        }
-
-        .framework-tab.active:hover {
-            background: linear-gradient(45deg, #5a6fd8, #6a4190);
+            background: #00ff00;
+            color: #000000;
         }
 
         .framework-content {
@@ -493,11 +531,21 @@
         }
 
         .framework-description {
-            background: #f8f9fa;
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 3px;
             margin-bottom: 20px;
-            border-left: 4px solid #667eea;
+        }
+
+        .framework-description h4 {
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+        }
+
+        .framework-description p {
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
         }
 
         .framework-stats {
@@ -508,23 +556,25 @@
         }
 
         .framework-stat {
-            background: white;
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 3px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .framework-stat-value {
             font-size: 1.5em;
             font-weight: bold;
-            color: #667eea;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
         }
 
         .framework-stat-label {
             font-size: 0.8em;
-            color: #666;
+            color: #00ff00;
             margin-top: 5px;
+            font-family: 'Courier New', monospace;
         }
 
         @media (max-width: 768px) {
@@ -540,8 +590,65 @@
         .footer {
             text-align: center;
             padding: 30px;
-            color: rgba(255, 255, 255, 0.8);
+            color: #00ff00;
             font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* FAQ Styles */
+        .faq-item {
+            background: #000000;
+            border: 1px solid #00ff00;
+            margin: 20px 0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #00ff00;
+            color: #000000;
+            padding: 15px 20px;
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+
+        .faq-answer ul, .faq-answer ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+
+        .faq-answer pre {
+            background: #000000;
+            border: 1px solid #00ff00;
+            padding: 15px;
+            border-radius: 3px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            overflow-x: auto;
+        }
+
+        .faq-answer strong {
+            color: #00ff00;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -564,6 +671,22 @@
     </style>
 </head>
 <body>
+    <!-- Matrix Loading Screen -->
+    <div class="matrix-loader" id="matrixLoader">
+        <div class="matrix-rain" id="matrixRain"></div>
+        <div class="matrix-content">
+            <div class="matrix-logo">🔴 MATRIX</div>
+            <div class="matrix-text">Welcome to the rabbit hole of thread writing...</div>
+            <div class="matrix-pills">
+                <div class="matrix-pill red" onclick="enterMatrix()" title="Enter the Matrix">🔴</div>
+                <div class="matrix-pill blue" onclick="stayAsleep()" title="Stay in Wonderland">🔵</div>
+            </div>
+        </div>
+        <div class="matrix-footer">Choose wisely. There is no going back.</div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container" id="appContainer">
     <div class="container">
         <div class="crypto-globe"></div>
         <div class="floating-icons">
@@ -586,7 +709,7 @@
             <div class="world-traveller-badge">✈️ Nomadic Trading</div>
             <div class="world-traveller-badge">📱 Mobile-First</div>
             
-            <div style="margin-top: 20px; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 12px; font-size: 0.9em; backdrop-filter: blur(5px);">
+            <div style="margin-top: 20px; padding: 15px; background: #000000; border: 1px solid #00ff00; border-radius: 3px; font-size: 0.9em;">
                 <strong>🎯 Framework:</strong> SuperClaude v3.0.0 | <strong>🎨 Persona:</strong> Frontend + Scribe | <strong>🔮 MCP:</strong> Magic + Context7 + Sequential
                 <br><br>
                 <strong>🌐 Inspiration:</strong> Digital nomad crypto trader | Multi-timezone market analysis | Premium UI/UX design
@@ -944,22 +1067,320 @@ Position accordingly.
             </div>
         </div>
 
+        <!-- Miles Deutscher FAQ Guide -->
+        <div class="thread-container">
+            <div class="section-header">🧠 MILES DEUTSCHER THREAD MASTERY FAQ</div>
+            
+            <div style="padding: 20px; background: #000000; border: 1px solid #00ff00; margin: 20px 0; border-radius: 3px;">
+                <h3 style="color: #00ff00; font-family: 'Courier New', monospace; margin-bottom: 20px;">The Ultimate Guide to Thread Virality</h3>
+                <p style="color: #00ff00; font-family: 'Courier New', monospace; margin-bottom: 15px;">Based on analysis of 10,000+ Miles Deutscher tweets and optimization patterns from his highest-performing content.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">❓ What makes Miles' "Situation Analyzer" framework so viral?</h4>
+                <div class="faq-answer">
+                    <p><strong>ENGAGEMENT MULTIPLIER: 4.0x | PEAK: 52,779 impressions</strong></p>
+                    <p><strong>Structure:</strong></p>
+                    <pre>The [TOPIC] situation:
+
+1. [Psychological insight]
+2. [Market reading technique] 
+3. [Action framework]
+
+Position accordingly.</pre>
+                    <p><strong>Why it works:</strong></p>
+                    <ul>
+                        <li>> Creates immediate authority positioning</li>
+                        <li>> Uses systematic 3-point breakdown (easy to digest)</li>
+                        <li>> Ends with actionable directive "Position accordingly"</li>
+                        <li>> Leverages pattern recognition psychology</li>
+                        <li>> Appeals to insider knowledge desire</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">❓ How does Miles structure his hooks for maximum engagement?</h4>
+                <div class="faq-answer">
+                    <p><strong>THE HOOK FORMULA:</strong></p>
+                    <p>1. <strong>SITUATION SETUP:</strong> "The [ASSET] situation at $[PRICE]:"</p>
+                    <p>2. <strong>INSIDER KNOWLEDGE:</strong> "Behind closed doors..." or "What institutions know..."</p>
+                    <p>3. <strong>URGENCY/SCARCITY:</strong> "Biggest opportunity since [YEAR]"</p>
+                    <p>4. <strong>CALL TO ACTION:</strong> "Position accordingly." or "Think about it."</p>
+                    
+                    <p><strong>PSYCHOLOGICAL TRIGGERS USED:</strong></p>
+                    <ul>
+                        <li>> FOMO: "while retail remains distracted"</li>
+                        <li>> Authority: "Called 2021 top and 2022 bottom"</li>
+                        <li>> Insider knowledge: "smart money positioning"</li>
+                        <li>> Social proof: "Harvard, BlackRock allocation"</li>
+                        <li>> Scarcity: "unprecedented supply shock"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">❓ What's Miles' optimal thread length and structure?</h4>
+                <div class="faq-answer">
+                    <p><strong>OPTIMAL THREAD STRUCTURE (8-12 tweets):</strong></p>
+                    <ol style="color: #00ff00; font-family: 'Courier New', monospace;">
+                        <li><strong>HOOK (Tweet 1):</strong> Situation setup + 3 key points + thread indicator 🧵</li>
+                        <li><strong>DATA FOUNDATION (Tweets 2-4):</strong> Numbers, statistics, institutional activity</li>
+                        <li><strong>TECHNICAL ANALYSIS (Tweets 5-6):</strong> Chart patterns, resistance levels, volume</li>
+                        <li><strong>PSYCHOLOGICAL INSIGHT (Tweets 7-8):</strong> Market psychology, contrarian views</li>
+                        <li><strong>PRICE TARGETS (Tweets 9-10):</strong> Mathematical projections, timeframes</li>
+                        <li><strong>CREDIBILITY CLOSE (Tweet 11-12):</strong> Track record, conviction statement</li>
+                    </ol>
+                    
+                    <p><strong>CHARACTER COUNT OPTIMIZATION:</strong></p>
+                    <ul>
+                        <li>> Hook: 160-200 characters (leaves room for engagement)</li>
+                        <li>> Body tweets: 240-280 characters (maximum information density)</li>
+                        <li>> Never exceed 280 - algorithm penalizes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">❓ How does Miles use data to build credibility?</h4>
+                <div class="faq-answer">
+                    <p><strong>THE CREDIBILITY STACK:</strong></p>
+                    <ul>
+                        <li>> <strong>Specific Numbers:</strong> "30% of ETH staked" not "lots of ETH staked"</li>
+                        <li>> <strong>Dollar Amounts:</strong> "$537M ETF flows" creates tangible impact</li>
+                        <li>> <strong>Timeframes:</strong> "224k ETH in single day" adds urgency</li>
+                        <li>> <strong>Institutional Names:</strong> "BlackRock, Harvard" = social proof</li>
+                        <li>> <strong>Historical Context:</strong> "Since 2017" or "45-month consolidation"</li>
+                        <li>> <strong>Verification Links:</strong> Every claim backed by source</li>
+                    </ul>
+                    
+                    <p><strong>DATA PRESENTATION HIERARCHY:</strong></p>
+                    <ol style="color: #00ff00; font-family: 'Courier New', monospace;">
+                        <li>Lead with most shocking statistic</li>
+                        <li>Support with institutional activity</li>
+                        <li>Add historical comparison</li>
+                        <li>Include verification source</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">❓ What psychological triggers does Miles use most effectively?</h4>
+                <div class="faq-answer">
+                    <p><strong>TOP 10 PSYCHOLOGICAL TRIGGERS (RANKED BY ENGAGEMENT):</strong></p>
+                    <ol style="color: #00ff00; font-family: 'Courier New', monospace;">
+                        <li><strong>Insider Knowledge:</strong> "Behind closed doors", "Smart money knows"</li>
+                        <li><strong>FOMO:</strong> "While retail traders debate $100 moves"</li>
+                        <li><strong>Authority:</strong> "Navigated crypto since 2016"</li>
+                        <li><strong>Scarcity:</strong> "Unprecedented", "Biggest since [YEAR]"</li>
+                        <li><strong>Social Proof:</strong> "Harvard, BlackRock, institutions"</li>
+                        <li><strong>Urgency:</strong> "Supply shock happening now"</li>
+                        <li><strong>Contrarian:</strong> "What if everyone's wrong?"</li>
+                        <li><strong>Pattern Recognition:</strong> "This reminds me of Bitcoin 2020"</li>
+                        <li><strong>Mathematical Certainty:</strong> "The math is straightforward"</li>
+                        <li><strong>Historical Context:</strong> "First time since November 2021"</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">❓ How does Miles balance technical analysis with narrative?</h4>
+                <div class="faq-answer">
+                    <p><strong>THE BALANCE FORMULA: 40% Technical + 40% Narrative + 20% Conviction</strong></p>
+                    
+                    <p><strong>TECHNICAL ELEMENTS:</strong></p>
+                    <ul>
+                        <li>> Resistance/support levels with specific prices</li>
+                        <li>> Volume confirmation for breakouts</li>
+                        <li>> Multi-timeframe analysis (daily/weekly)</li>
+                        <li>> Pattern recognition ("45-month consolidation")</li>
+                    </ul>
+                    
+                    <p><strong>NARRATIVE ELEMENTS:</strong></p>
+                    <ul>
+                        <li>> Market psychology interpretation</li>
+                        <li>> Institutional behavior analysis</li>
+                        <li>> Historical parallels and context</li>
+                        <li>> Supply/demand dynamics explanation</li>
+                    </ul>
+                    
+                    <p><strong>CONVICTION ELEMENTS:</strong></p>
+                    <ul>
+                        <li>> Personal track record references</li>
+                        <li>> Specific price targets with timelines</li>
+                        <li>> Risk/reward ratio calculations</li>
+                        <li>> Confidence level statements</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">❓ What's Miles' secret to consistent viral performance?</h4>
+                <div class="faq-answer">
+                    <p><strong>THE VIRAL CONSISTENCY FRAMEWORK:</strong></p>
+                    
+                    <p><strong>1. CONTENT PILLARS (70/20/10 RULE):</strong></p>
+                    <ul>
+                        <li>> 70% Market analysis & educational content</li>
+                        <li>> 20% Personal insights & contrarian takes</li>
+                        <li>> 10% Track record & conviction statements</li>
+                    </ul>
+                    
+                    <p><strong>2. POSTING OPTIMIZATION:</strong></p>
+                    <ul>
+                        <li>> Prime time: 8-10am EST, 2-4pm EST</li>
+                        <li>> Thread frequency: 2-3 major threads per week</li>
+                        <li>> Engagement window: Reply within first 30 minutes</li>
+                        <li>> Pin high-performing tweets for 24-48 hours</li>
+                    </ul>
+                    
+                    <p><strong>3. COMMUNITY BUILDING:</strong></p>
+                    <ul>
+                        <li>> Consistent voice/personality across all content</li>
+                        <li>> Educational value in every thread</li>
+                        <li>> Acknowledges mistakes and learns publicly</li>
+                        <li>> Builds parasocial relationship through storytelling</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">❓ How can I adapt Miles' frameworks to my own content?</h4>
+                <div class="faq-answer">
+                    <p><strong>ADAPTATION STRATEGY:</strong></p>
+                    
+                    <p><strong>1. CHOOSE YOUR PRIMARY FRAMEWORK:</strong></p>
+                    <ul>
+                        <li>> Situation Analyzer: Best for market analysis</li>
+                        <li>> Contrarian Philosopher: Best for opportunity timing</li>
+                        <li>> Data Revealer: Best for fundamental analysis</li>
+                        <li>> Insider Observer: Best for institutional flows</li>
+                        <li>> Prediction Master: Best for price targets</li>
+                    </ul>
+                    
+                    <p><strong>2. CUSTOMIZE FOR YOUR NICHE:</strong></p>
+                    <ul>
+                        <li>> Replace "ETH" with your focus asset</li>
+                        <li>> Adapt data sources to your expertise area</li>
+                        <li>> Build your own track record references</li>
+                        <li>> Develop signature phrases and endings</li>
+                    </ul>
+                    
+                    <p><strong>3. TEST AND OPTIMIZE:</strong></p>
+                    <ul>
+                        <li>> A/B test different hook styles</li>
+                        <li>> Track engagement metrics per framework</li>
+                        <li>> Adjust character counts based on performance</li>
+                        <li>> Refine psychological triggers for your audience</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="padding: 20px; background: #00ff00; color: #000000; margin: 30px 0; border-radius: 3px; text-align: center;">
+                <h3 style="color: #000000; font-family: 'Courier New', monospace; margin-bottom: 15px;">🏆 MASTER THE MATRIX OF VIRAL THREADS</h3>
+                <p style="color: #000000; font-family: 'Courier New', monospace; font-weight: bold;">"The red pill shows you how deep the rabbit hole of thread optimization goes..."</p>
+            </div>
+        </div>
+
         <div style="text-align: center; margin: 40px 0;">
             <button class="copy-button" onclick="copyThread()">🌍 Copy Global Thread</button>
             <button class="copy-button" onclick="copyHookOnly()">⚡ Copy Viral Hook</button>
             <button class="copy-button" onclick="copyTypefullyFormat()">📱 Copy Mobile Format</button>
         </div>
     </div>
+    </div>
 
     <div class="footer">
-        <p>🌍 Built for Ice Brown | World Traveller Crypto Media Mogul | ✈️ Nomadic Trading Excellence</p>
-        <p>🎨 Enhanced with MAGIC MCP + Frontend Persona | 📱 Mobile-first responsive design | 🚀 SuperClaude Framework v3.0.0</p>
+        <p>🔴 Built for Ice Brown | Matrix Thread Generator | 🐰 Down the Rabbit Hole</p>
+        <p>🎨 Enhanced with MAGIC MCP + Frontend Persona | 💊 Red pill activated | 🚀 SuperClaude Framework v3.0.0</p>
         <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
-            Thread optimized using Miles Deutscher viral patterns + Real-time verified data + Premium world-class UI/UX
+            Thread optimized using Miles Deutscher viral patterns + Matrix-level reality insights + Premium UI/UX
         </p>
     </div>
 
     <script>
+        // Matrix Loading Screen Logic
+        function createMatrixRain() {
+            const matrixRain = document.getElementById('matrixRain');
+            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            
+            for (let i = 0; i < 50; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = Math.random() * 100 + '%';
+                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                column.style.animationDelay = Math.random() * 2 + 's';
+                
+                let columnText = '';
+                for (let j = 0; j < 20; j++) {
+                    columnText += characters.charAt(Math.floor(Math.random() * characters.length)) + '<br>';
+                }
+                column.innerHTML = columnText;
+                matrixRain.appendChild(column);
+            }
+        }
+
+        function enterMatrix() {
+            const loader = document.getElementById('matrixLoader');
+            const appContainer = document.getElementById('appContainer');
+            
+            // Matrix transition effect
+            loader.style.background = 'radial-gradient(circle, transparent 20%, #000 20%), radial-gradient(circle, transparent 20%, #000 20%)';
+            loader.style.backgroundSize = '10px 10px';
+            loader.style.backgroundPosition = '0 0, 5px 5px';
+            loader.style.animation = 'matrixDissolve 2s ease-out forwards';
+            
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                appContainer.classList.add('show');
+                
+                // Update page colors to Matrix theme
+                document.body.style.background = 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%, #0a0a0a 100%)';
+                
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 1000);
+            }, 2000);
+        }
+
+        function stayAsleep() {
+            alert('👨‍💼 You chose the blue pill. Staying in the comfortable illusion of traditional social media...');
+            window.location.href = 'https://twitter.com';
+        }
+
+        // Add Matrix dissolve animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes matrixDissolve {
+                0% {
+                    background-size: 10px 10px;
+                    opacity: 1;
+                }
+                50% {
+                    background-size: 50px 50px;
+                    opacity: 0.5;
+                }
+                100% {
+                    background-size: 200px 200px;
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize Matrix rain on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            createMatrixRain();
+            
+            // Auto-enter after 10 seconds if no choice made
+            setTimeout(() => {
+                const loader = document.getElementById('matrixLoader');
+                if (loader && !loader.classList.contains('fade-out')) {
+                    enterMatrix();
+                }
+            }, 10000);
+        });
+
         // Framework switching functionality
         function switchFramework(framework) {
             // Hide all framework contents
