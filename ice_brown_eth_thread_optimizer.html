@@ -13,24 +13,157 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #667eea 50%, #764ba2 75%, #8e44ad 100%);
+            background-size: 400% 400%;
+            animation: worldTraveller 15s ease infinite;
             min-height: 100vh;
             color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes worldTraveller {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
+        .crypto-globe {
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 200% 200%;
+            animation: cryptoGlobe 8s ease infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        @keyframes cryptoGlobe {
+            0% { transform: rotate(0deg) scale(1); background-position: 0% 50%; }
+            25% { transform: rotate(90deg) scale(1.1); background-position: 100% 50%; }
+            50% { transform: rotate(180deg) scale(1); background-position: 100% 100%; }
+            75% { transform: rotate(270deg) scale(0.9); background-position: 0% 100%; }
+            100% { transform: rotate(360deg) scale(1); background-position: 0% 50%; }
+        }
+
+        .floating-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.1;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { 
+                transform: translateY(100vh) rotate(0deg); 
+                opacity: 0;
+            }
+            10% { opacity: 0.1; }
+            90% { opacity: 0.1; }
+            100% { 
+                transform: translateY(-100px) rotate(360deg); 
+                opacity: 0;
+            }
+        }
+
+        .floating-icon:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .floating-icon:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .floating-icon:nth-child(4) { left: 40%; animation-delay: 6s; }
+        .floating-icon:nth-child(5) { left: 50%; animation-delay: 8s; }
+        .floating-icon:nth-child(6) { left: 60%; animation-delay: 10s; }
+        .floating-icon:nth-child(7) { left: 70%; animation-delay: 12s; }
+        .floating-icon:nth-child(8) { left: 80%; animation-delay: 14s; }
+        .floating-icon:nth-child(9) { left: 90%; animation-delay: 16s; }
+
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px;
             margin-bottom: 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+
+        .world-traveller-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb);
+            background-size: 200% 200%;
+            animation: badgeShine 4s ease infinite;
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin: 10px 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes badgeShine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .header h1 {
@@ -249,20 +382,44 @@
         }
 
         .copy-button {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8e44ad 100%);
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
+            padding: 15px 30px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1em;
-            transition: all 0.3s ease;
-            margin: 10px 5px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 12px 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .copy-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .copy-button:hover::before {
+            left: 100%;
         }
 
         .copy-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .copy-button:active {
+            transform: translateY(0) scale(0.98);
         }
 
         .framework-selector {
@@ -282,15 +439,34 @@
         }
 
         .framework-tab {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f4fd 100%);
             border: 2px solid #e1e8ed;
-            padding: 12px 20px;
-            border-radius: 8px;
+            padding: 15px 25px;
+            border-radius: 12px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
             text-align: center;
-            min-width: 150px;
+            min-width: 160px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .framework-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .framework-tab:hover::before {
+            left: 100%;
         }
 
         .framework-tab.active {
@@ -389,36 +565,64 @@
 </head>
 <body>
     <div class="container">
+        <div class="crypto-globe"></div>
+        <div class="floating-icons">
+            <div class="floating-icon">🌍</div>
+            <div class="floating-icon">✈️</div>
+            <div class="floating-icon">📱</div>
+            <div class="floating-icon">💎</div>
+            <div class="floating-icon">🚀</div>
+            <div class="floating-icon">📊</div>
+            <div class="floating-icon">🌟</div>
+            <div class="floating-icon">🎯</div>
+            <div class="floating-icon">⚡</div>
+        </div>
+
         <div class="header">
-            <h1>🚀 SuperClaude ETH Thread Optimizer</h1>
-            <div class="subtitle">✍️ Scribe Mode Active | Custom-Built for Ice Brown | Crypto Media Mogul Edition</div>
-            <div style="margin-top: 15px; padding: 10px; background: rgba(102, 126, 234, 0.1); border-radius: 8px; font-size: 0.9em;">
-                <strong>Framework:</strong> SuperClaude v3.0.0 | <strong>Persona:</strong> Scribe + Analyzer | <strong>MCP:</strong> Context7 + Sequential
+            <h1>🌍 SuperClaude ETH Thread Optimizer</h1>
+            <div class="subtitle">✍️ Frontend Persona Active | World Traveller Crypto Media Mogul Edition</div>
+            
+            <div class="world-traveller-badge">🌍 Global Crypto Insights</div>
+            <div class="world-traveller-badge">✈️ Nomadic Trading</div>
+            <div class="world-traveller-badge">📱 Mobile-First</div>
+            
+            <div style="margin-top: 20px; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 12px; font-size: 0.9em; backdrop-filter: blur(5px);">
+                <strong>🎯 Framework:</strong> SuperClaude v3.0.0 | <strong>🎨 Persona:</strong> Frontend + Scribe | <strong>🔮 MCP:</strong> Magic + Context7 + Sequential
+                <br><br>
+                <strong>🌐 Inspiration:</strong> Digital nomad crypto trader | Multi-timezone market analysis | Premium UI/UX design
             </div>
         </div>
 
         <div class="viral-alert">
-            <h2>🔥 MAX VIRAL MODE ACTIVATED</h2>
-            <p>Hook optimized for maximum engagement using Miles Deutscher's highest-performing psychological triggers</p>
+            <h2>🔥 MAX VIRAL MODE + MAGIC MCP ACTIVATED</h2>
+            <p>🌍 World-class UI/UX with premium crypto media design | Optimized for global digital nomad workflow</p>
+            <div style="margin-top: 10px; font-size: 0.9em; opacity: 0.9;">
+                ✨ Enhanced with MAGIC MCP for sophisticated component generation | Frontend persona ensuring mobile-first responsive design
+            </div>
         </div>
 
         <div class="framework-selector">
             <h3 style="text-align: center; margin-bottom: 25px; color: #2c3e50;">🎯 Select Thread Framework</h3>
             <div class="framework-tabs">
                 <div class="framework-tab active" onclick="switchFramework('situation')">
-                    🔥 Situation Analyzer
+                    🔥 Global Situation
+                    <div style="font-size: 0.75em; opacity: 0.8; margin-top: 2px;">Tokyo → London → NYC</div>
                 </div>
                 <div class="framework-tab" onclick="switchFramework('contrarian')">
-                    💡 Contrarian Philosopher
+                    💡 Nomad Contrarian
+                    <div style="font-size: 0.75em; opacity: 0.8; margin-top: 2px;">Against the crowd</div>
                 </div>
                 <div class="framework-tab" onclick="switchFramework('data')">
-                    📊 Data Revealer
+                    📊 Mobile Dashboard
+                    <div style="font-size: 0.75em; opacity: 0.8; margin-top: 2px;">Airport trading</div>
                 </div>
                 <div class="framework-tab" onclick="switchFramework('insider')">
-                    🕵️ Insider Observer
+                    🌍 World Insider
+                    <div style="font-size: 0.75em; opacity: 0.8; margin-top: 2px;">Global smart money</div>
                 </div>
                 <div class="framework-tab" onclick="switchFramework('prediction')">
-                    🎯 Prediction Master
+                    ✈️ Jet-lag Oracle
+                    <div style="font-size: 0.75em; opacity: 0.8; margin-top: 2px;">Multi-TZ calls</div>
                 </div>
             </div>
 
@@ -740,16 +944,19 @@ Position accordingly.
             </div>
         </div>
 
-        <div style="text-align: center; margin: 30px 0;">
-            <button class="copy-button" onclick="copyThread()">📋 Copy Full Thread</button>
-            <button class="copy-button" onclick="copyHookOnly()">🎯 Copy Hook Only</button>
-            <button class="copy-button" onclick="copyTypefullyFormat()">📝 Copy Typefully Format</button>
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="copy-button" onclick="copyThread()">🌍 Copy Global Thread</button>
+            <button class="copy-button" onclick="copyHookOnly()">⚡ Copy Viral Hook</button>
+            <button class="copy-button" onclick="copyTypefullyFormat()">📱 Copy Mobile Format</button>
         </div>
     </div>
 
     <div class="footer">
-        <p>🚀 Built for Ice Brown | Crypto Media Mogul | Max Viral Configuration Active</p>
-        <p>Thread optimized using Miles Deutscher viral framework patterns + verified data sources</p>
+        <p>🌍 Built for Ice Brown | World Traveller Crypto Media Mogul | ✈️ Nomadic Trading Excellence</p>
+        <p>🎨 Enhanced with MAGIC MCP + Frontend Persona | 📱 Mobile-first responsive design | 🚀 SuperClaude Framework v3.0.0</p>
+        <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
+            Thread optimized using Miles Deutscher viral patterns + Real-time verified data + Premium world-class UI/UX
+        </p>
     </div>
 
     <script>
